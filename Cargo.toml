@@ -1,0 +1,12 @@
+[package]
+name = "ascube"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+winapi = { version = "0.3.7", features = ["consoleapi", "libloaderapi"] }
+clap = { version="3.0.10", features=["derive"]}
+eframe = "0.18.0"
+egui = "0.18.1"
