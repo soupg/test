@@ -22,13 +22,29 @@ fn main() {
 
 // Drawing UI
 struct Shiro {
-    selectedtab: i32
+    // Health
+    health: i32,
+    healthset: i32,
+
+    // Tabs
+    selectedtab: i32,
+
+    // Aimbot
+    aimbot_enabled: bool,
 }
 
 impl Default for Shiro {
     fn default() -> Self {
         Self {
+            // Health
+            health: 100,
+            healthset: 100,
+
+            // Tabs
             selectedtab: 1,
+
+            // Aimbot
+            aimbot_enabled: false,
         }
     }
 }
@@ -41,7 +57,15 @@ impl Shiro {
 
         ui.heading("Aimbot");
 
-        //
+        // Aimbot Enabled
+        if ui.add(egui::RadioButton::new(self.aimbot_enabled == true, "Aimbot Enabled")).clicked() {
+            if self.aimbot_enabled == true {self.aimbot_enabled = false} else {self.aimbot_enabled = true};
+        }
+
+        ui.horizontal(|ui| {
+            ui.label("Enabled: ");
+            ui.text_edit_singleline(&mut self.aimbot_enabled.to_string())
+        });
 
         ui.add(egui::Separator::spacing(egui::Separator::horizontal(egui::Separator::default()), 10.0));
     }
@@ -90,9 +114,9 @@ impl eframe::App for Shiro {
 
             // Tab Array
             ui.horizontal(|ui| {
-                ui.selectable_value(&mut self.selectedtab,1,"Aimbot");
-                ui.selectable_value(&mut self.selectedtab,2,"ESP");
-                ui.selectable_value(&mut self.selectedtab,3,"Misc");
+                ui.selectable_value(&mut self.selectedtab, 1, "Aimbot");
+                ui.selectable_value(&mut self.selectedtab, 2, "ESP");
+                ui.selectable_value(&mut self.selectedtab, 3, "Misc");
             });
             ui.add(egui::Separator::spacing(egui::Separator::horizontal(egui::Separator::default()), 10.0));
 
