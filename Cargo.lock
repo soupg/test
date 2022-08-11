@@ -53,16 +53,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "ascube"
-version = "0.1.0"
-dependencies = [
- "clap",
- "eframe",
- "egui",
- "winapi",
-]
-
-[[package]]
 name = "atomic_refcell"
 version = "0.1.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -648,6 +638,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3da5951a1569dbab865c6f2a863efafff193a93caf05538d193e9e3816d21696"
 dependencies = [
  "gl_generator",
+]
+
+[[package]]
+name = "gui"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "eframe",
+ "egui",
+ "winapi",
 ]
 
 [[package]]
